@@ -1,0 +1,12 @@
+#app[data-state="ready"]{
+  #dude > .graphic{
+    -webkit-transform: rotate(0deg) !important;
+  }
+  #startBtn{
+    display: block;
+    &:before{
+      content: "Start!";
+    }
+
+  }
+}

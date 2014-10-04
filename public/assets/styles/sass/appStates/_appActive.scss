@@ -1,0 +1,12 @@
+#app[data-state="active"]{
+  #dude > .graphic{
+
+  }
+  #startBtn{
+    display: none;
+    &:before{
+      content: "";
+    }
+
+  }
+}

@@ -19,4 +19,7 @@ $formFont: Arial, sans-serif;
 @import "compass/css3/user-interface";
 @import 'global/mixins';
 @import 'global/helpers';
-@import 'views/app';
+@import 'appStates/app';
+@import 'appStates/appReady';
+@import 'appStates/appFail';
+@import 'appStates/appActive';

@@ -14,7 +14,12 @@ function(utils){
         
         if (! window.DeviceOrientationEvent) {
             callback({unsupported: true})
+            console.log('NOT SUPPORTED');
             return false;
+        }
+        else{
+            console.log('SUPPORTED');
+
         }
 
         if( options.auto ){

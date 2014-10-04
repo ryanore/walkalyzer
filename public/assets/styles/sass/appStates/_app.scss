@@ -40,14 +40,9 @@ body{
     background-position: 50% 50%;
     background-repeat: no-repeat;
     background-image: url(../images/dude-white-shadow.png);
-    transition-duration: .3s;
-    transition-property: -webkit-transform;
-    transform-origin:50% 95% ;
-
-    &.fail{
-      background-image: url(../images/dude-puking.png);
-      transform: rotate(0deg) !important;
-    }
+    -webkit-transition-duration: .1s;
+    -webkit-transition-property: -webkit-transform;
+    -webkit-transform-origin:50% 95% ;
   }
 }
 

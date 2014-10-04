@@ -1,0 +1,13 @@
+#app[data-state="fail"]{
+  #dude > .graphic{
+      background-image: url(../images/dude-puking.png);
+      -webkit-transform: rotate(0deg) !important;
+  }
+  #startBtn{
+    display: block;
+    &:before{
+      content: "Try Again?";
+    }
+  }
+
+}
