@@ -71,6 +71,22 @@ article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, 
 /* INPUTS  */
 /* LINKS */
 /* BUTTONS */
+/* line 62, sass/global/_mixins.scss */
+#footer button {
+  -webkit-transition: background-color 0.15s ease-in;
+  -moz-transition: background-color 0.15s ease-in;
+  -o-transition: background-color 0.15s ease-in;
+  transition: background-color 0.15s ease-in;
+  font-family: Impact, Arial;
+  border: none;
+  outline: none;
+  margin: 0;
+  padding: .4em 1em;
+  display: inline-block;
+  cursor: pointer;
+  text-align: center;
+}
+
 /* line 113, sass/global/_mixins.scss */
 [data-fade] {
   opacity: 0;
@@ -316,4 +332,83 @@ body {
   -moz-box-align: stretch;
   -ms-box-align: stretch;
   box-align: stretch;
+}
+
+/* line 26, sass/views/_app.scss */
+#splash {
+  display: none;
+}
+
+/* line 31, sass/views/_app.scss */
+#dude {
+  -webkit-box-flex: 10;
+  -moz-box-flex: 10;
+  -ms-box-flex: 10;
+  box-flex: 10;
+  position: relative;
+}
+/* line 34, sass/views/_app.scss */
+#dude .graphic {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-size: contain;
+  background-position: 50% 50%;
+  background-repeat: no-repeat;
+  background-image: url(../images/dude-white-shadow.png);
+  transition-duration: .3s;
+  transition-property: -webkit-transform;
+  transform-origin: 50% 95%;
+}
+/* line 47, sass/views/_app.scss */
+#dude .graphic.fail {
+  background-image: url(../images/dude-puking.png);
+  transform: rotate(0deg) !important;
+}
+
+/* line 55, sass/views/_app.scss */
+#footer {
+  -webkit-box-flex: 0.1;
+  -moz-box-flex: 0.1;
+  -ms-box-flex: 0.1;
+  box-flex: 0.1;
+  position: relative;
+  z-index: 9999;
+  max-height: 60px;
+  min-height: 60px;
+  padding: 10px 5%;
+  background: rgba(0, 0, 0, 0.25);
+  color: #fff;
+}
+/* line 64, sass/views/_app.scss */
+#footer #log {
+  display: none;
+  padding: 5px;
+  background: rgba(0, 0, 0, 0.25);
+}
+/* line 68, sass/views/_app.scss */
+#footer #log.show {
+  display: inline-block;
+}
+/* line 72, sass/views/_app.scss */
+#footer button {
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  -ms-border-radius: 4px;
+  -o-border-radius: 4px;
+  border-radius: 4px;
+  font-family: Impact, Arial;
+  color: #666666;
+  background-color: white;
+  padding: 5px;
+  font-size: 18px;
+  width: 130px;
+  text-align: center;
+  margin-right: 30px;
+  display: inline-block;
+}
+/* line 80, sass/global/_mixins.scss */
+#footer button:hover {
+  background-color: #cccccc;
 }
