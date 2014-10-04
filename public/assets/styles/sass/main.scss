@@ -1,0 +1,24 @@
+/*MAIN SASS FILE*/
+
+/*COLORS*/
+$bodyColor: #888;
+$white: rgb(255,255,255);		//#fff;
+$black: rgb(0,0,0);		 		//#000;
+$dark: rgb(34,34,34);			//#222
+$brand2nd: rgb(21,123,178);		//#157BB2
+$brand: rgb(234,132,0); 		//#FF8F00
+$brandHL: rgb(255,155,25);		//#FF9B19
+
+/*FONTS*/
+$bodyFont: sans-serif;
+$headingFont: Impact, Arial;
+$formFont: Arial, sans-serif;
+
+
+@import 'compass';
+@import 'compass/reset';
+@import "compass/css3/user-interface";
+@import 'global/mixins';
+@import 'global/helpers';
+@import 'views/app';
+@import 'views/dude';
