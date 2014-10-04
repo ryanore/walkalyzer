@@ -51,6 +51,7 @@ module.exports = function(grunt) {
 		  }
 		},
 		
+
 		clean: {
 			build: {
 				src: [ '<%= conf.build %>' ]
@@ -65,7 +66,7 @@ module.exports = function(grunt) {
 		
 		watch: {
 			css: {
-				files: '<%= conf.src %>/styles/sass/**/*.scss',
+				files: '<%= conf.src %>/assets/styles/sass/**/*.scss',
 				tasks: ['compass']
 			}
 		}
