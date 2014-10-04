@@ -14,11 +14,9 @@ $bodyFont: sans-serif;
 $headingFont: Impact, Arial;
 $formFont: Arial, sans-serif;
 
-
 @import 'compass';
 @import 'compass/reset';
 @import "compass/css3/user-interface";
 @import 'global/mixins';
 @import 'global/helpers';
 @import 'views/app';
-@import 'views/dude';
