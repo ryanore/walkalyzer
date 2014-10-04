@@ -10,13 +10,17 @@ module.exports = function(grunt) {
 
 
 	var banner = [
-		'/*! <%= pkg.name %> - v<%= pkg.version %> - ',
-		'<%= grunt.template.today("yyyy-mm-dd") %> - <%= pkg.homepage %> */\n'
+		'/*! <%= pkg.name %> - v<%= pkg.version %> - \n',
+		'<%= grunt.template.today("yyyy-mm-dd") %> - <%= pkg.homepage %> */\n\n'
 		].join('');
  
+
 	grunt.initConfig({
+		
 		conf: projectConfig,
+		
 		pkg: grunt.file.readJSON('package.json'),
+		
 		compass: {
 			dist: {
 				options: {
@@ -25,6 +29,7 @@ module.exports = function(grunt) {
 				}
 			}
 		},
+
 		copy: {
 			build: {
 				cwd: '<%= conf.src %>',
@@ -34,37 +39,6 @@ module.exports = function(grunt) {
 			},
 		},
 
-		// concatenate js files.  A separate file for minified polyfills
-		concat:{
-			options:{
-				separator: ';'
-		    },
-			standard:{
-				src:[
-					'<%= conf.src %>/assets/scripts/ore.utils.js',
-					'<%= conf.src %>/assets/scripts/ore.accelo.js',
-					'<%= conf.src %>/assets/scripts/ore.walkalizer.js',
-		        ],
-		        dest: '<%= conf.build %>/assets/scripts/main-built.js'
-		    },
-		    polyfill:{
-				src:['<%= conf.src %>/assets/scripts/polyfills/*'],
-				dest:'<%= conf.build %>/assets/scripts/polyfills-built.js'
-			}
-		},
-		
-		// minify and uglify the 2 built js files.
-		uglify:{
-			standard:{
-				files:{
-					'<%= conf.build %>/assets/scripts/main.js': ['<%= conf.build %>/assets/scripts/main-built.js']
-				}
-			},
-			options:{
-				banner: banner
-			}
-		},
-		
 		requirejs: {
 		  compile: {
 		    options: {
@@ -72,7 +46,6 @@ module.exports = function(grunt) {
 		      mainConfigFile: "<%= conf.src %>/assets/scripts/main.js",
 		      out: "<%= conf.build %>/scripts/main-min.js",
 		      name: "main",
-			  include: ['app'],
 			  optimize: "uglify2",
 		    }
 		  }
@@ -85,7 +58,7 @@ module.exports = function(grunt) {
 			cleanUp: {
 				src: [ 
 				'<%= conf.build %>/assets/styles/*', '!<%= conf.build %>/assets/styles/main.css',
-				'<%= conf.build %>/assets/scripts/*', '!<%= conf.build %>/assets/scripts/main.js'
+				'<%= conf.build %>/assets/scripts/*', '!<%= conf.build %>/assets/scripts/main-min.js'
 				]
 			}
 		},
