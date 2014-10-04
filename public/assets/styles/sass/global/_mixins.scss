@@ -1,0 +1,134 @@
+
+
+
+/* VENDOR PREFIXES*/
+
+@mixin vendorize($property, $value) {
+	-webkit-#{$property}: $value;
+	-moz-#{$property}: $value;
+	-ms-#{$property}: $value;
+	-o-#{$property}: $value;
+	#{$property}: $value;
+}
+
+/* MEDIA QUERIES */
+@mixin respondMin($breakpoint) {
+    @media only screen and (min-width: $breakpoint + px) { @content; }
+}
+
+
+/* INPUTS  */
+
+%inputText {
+	margin: 0;
+	padding: 3px 10px;
+	max-width: 100%;
+	width: 100%;
+	display: block;
+	outline: none;
+	border: none;
+	font-size: 1em;
+}
+@mixin inputText($color, $font) {
+	@extend %inputText;
+	@include single-transition(border-color, .4s, ease-in);
+	font-family: $font;
+	background: $color;
+}
+
+@mixin colorAlpha($brandColor, $alpha, $prop){
+	$prop: rgba($brandColor, $alpha);
+}
+
+
+/* LINKS */
+
+%link {
+	@include single-transition(background-color, .15s, ease-in);
+	font-family: $bodyFont;
+	text-decoration: none;
+	outline: none;
+	margin: 0;
+	display: inline-block;
+	cursor: pointer;
+	color: $brand;
+	&:hover, &:active, &:visited{
+		color: $brandHL;
+	}
+}
+
+/* BUTTONS */
+
+%btn {
+	@include single-transition(background-color, .15s, ease-in);
+	font-family: $headingFont;
+	border: none;
+	outline: none;
+	margin: 0;
+	padding: .4em 1em;
+	display: inline-block;
+	cursor: pointer;
+	text-align: center;
+}
+
+@mixin cta($color, $bgColor, $bgColorHover, $font: $headingFont) {
+	@extend %btn;
+	@include border-radius(4px);
+	font-family: $font;
+	color: $color;
+	background-color: $bgColor;
+	&:hover{
+		background-color: $bgColorHover;
+	}
+}
+
+@mixin brandCta() {
+	@extend %btn;
+	font-family: $headingFont;
+	color: $white;
+	background-color: $brand;
+	&:hover{
+		background-color: $brandHL;
+	}
+}
+
+@mixin roundButton(){
+	@include cta($white, $brand, $brandHL);
+	@include box-shadow( 0 3px 3px rgba(0, 0, 0, 0.6));
+	font-size: 14px;
+	height: 36px;
+	width: 36px;
+	border-radius: 18px;
+	padding:0;
+	border: 2px solid #fff;
+}
+
+@mixin scrollPanel(){
+	overflow-y: scroll; 
+	overflow-x: hidden;
+  -webkit-overflow-scrolling: touch;
+}
+
+
+[data-fade]{
+	opacity: 0;
+	@include single-transition(opacity, .25s, ease-in);
+}
+[data-fade].show{
+	opacity: 1;
+}
+[data-fade=".25"]{@include transition-delay(.25s);}
+[data-fade=".50"]{@include transition-delay(.50s);}
+[data-fade=".75"]{@include transition-delay(.75s);}
+[data-fade="1"]{@include transition-delay(1s);}
+[data-fade="1.25"]{@include transition-delay(1.25s);}
+[data-fade="1.5"]{@include transition-delay(1.5s);}
+[data-fade="1.75"]{@include transition-delay(1.75s);}
+[data-fade="2"]{@include transition-delay(2s);}
+[data-fade="2.25"]{@include transition-delay(2.25s);}
+[data-fade="2.5"]{@include transition-delay(2.5s);}
+[data-fade="2.75"]{@include transition-delay(2.75s);}
+[data-fade="3"]{@include transition-delay(3s);}
+[data-fade="4"]{@include transition-delay(4s);}
+[data-fade="5"]{@include transition-delay(5s);}
+

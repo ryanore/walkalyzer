@@ -1,0 +1,49 @@
+/* #Forms
+================================================== */
+form{
+	width: 100%;
+	padding-bottom: 20px;
+	dfn{
+		font-size: .6em;
+		position: relative;
+		top: -7px;
+		left: -2px;
+	}
+	legend{
+		display: none;
+	}
+	label{
+		color: $brand;
+		font-weight: bold;
+		font-family: $headingFont;
+		text-transform: uppercase;
+	}
+
+	input[type="text"],
+	input[type="password"],
+	input[type="search"],
+	input[type="email"],
+	textarea{
+		@include inputText($white, $bodyFont);
+		margin: 5px 0 10px 0;
+		border: 1px solid $bodyColor;
+		border-radius: 4px;	
+		font-weight: bold;
+		color: $bodyColor;
+		-webkit-appearance:none;
+		&:focus{
+			border-color: $brandHL; 
+		}
+	}
+
+	button,
+	input[type="submit"],
+	input[type="reset"],
+	input[type="button"]{
+		@extend %btn;
+		@include cta($white, $brand, $brandHL, $bodyFont);
+		font-size: 1em;
+		-webkit-appearance:none;
+	}
+
+}

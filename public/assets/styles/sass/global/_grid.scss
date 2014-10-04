@@ -1,0 +1,94 @@
+
+
+
+.container                                  { width: 100%; margin: 0 auto; padding: 0; }
+.column, .columns                           { float: left; display: inline; margin: 0; }
+
+.container { width: 100%; }
+.columns, .column { margin: 0; }
+.container .column,
+.container .columns { width: 100%; } 
+.container [data-col="1"],						
+.container [data-col="2"],					
+.container [data-col="3"]	,					
+.container [data-col="4"]	,					
+.container [data-col="5"]	,					
+.container [data-col="6"]	,					
+.container [data-col="7"]	,					
+.container [data-col="8"]	,					
+.container [data-col="9"]	,					
+.container [data-col="10"],					
+.container [data-col="11"],					
+.container [data-col="12"],					
+.container [data-col="13"],					
+.container [data-col="14"],					
+.container [data-col="15"],					
+.container [data-col="16"]{width:100%;}
+
+/* Offsets  */
+.container [data-offset="1"],               
+.container [data-offset="2"],                  
+.container [data-offset="3"],                 
+.container [data-offset="4"],                  
+.container [data-offset="5"],                 
+.container [data-offset="6"],                  
+.container [data-offset="7"],              
+.container [data-offset="8"],                 
+.container [data-offset="9"],                 
+.container [data-offset="10"],                 
+.container [data-offset="11"],                
+.container [data-offset="12"],                
+.container [data-offset="13"],              
+.container [data-offset="14"],              
+.container [data-offset="15"]{ padding-left: inherit}               
+
+
+/* Nested Column Classes */
+.column.alpha, .columns.alpha               { margin-left: 0; }
+.column.omega, .columns.omega               { margin-right: 0; }
+
+
+@media only screen and (min-width: 500px) {
+	
+.column, .columns                           { padding: 0 20px;}
+
+/* Base Grid */
+.container .one.column                      { width: 6.25%;  } 
+.container .two.columns                     { width: 12.5%; } 
+.container .three.columns                   { width: 18.75%; } 
+.container .four.columns                    { width: 25%; }
+.container .five.columns                    { width: 31.25%; } 
+.container .six.columns                     { width: 37.5%; } 
+.container .seven.columns                   { width: 43.7%; } 
+.container .eight.columns                   { width: 50%; }
+.container .nine.columns                    { width: 56.25%; } 
+.container .ten.columns                     { width: 62.5%; }
+.container .eleven.columns                  { width: 68.75%; } 
+.container .twelve.columns                  { width: 75%; } 
+.container .thirteen.columns                { width: 81.25%; }
+.container .fourteen.columns                { width: 87%; } 
+.container .fifteen.columns                 { width: 93.75%; } 
+.container .sixteen.columns                 { width: 100%; } 
+
+.container .one-third.column                { width: 33.33333333%; } 
+.container .two-thirds.column               { width: 66.66666666%; }
+
+/* Offsets  */
+.container .offset-by-one                   { padding-left: 6.25%;  } 
+.container .offset-by-two                   { padding-left: 12.5%; } 
+.container .offset-by-three                 { padding-left: 18.75%; }
+.container .offset-by-four                  { padding-left: 25%; } 
+.container .offset-by-five                  { padding-left: 31.25%; } 
+.container .offset-by-six                   { padding-left: 37.5%; } 
+.container .offset-by-seven                 { padding-left: 43.7%; }
+.container .offset-by-eight                 { padding-left: 50%; } 
+.container .offset-by-nine                  { padding-left: 56.25%; }
+.container .offset-by-ten                   { padding-left: 62.5%; }
+.container .offset-by-eleven                { padding-left: 68.75%; }
+.container .offset-by-twelve                { padding-left: 75%; } 
+.container .offset-by-thirteen              { padding-left: 81.25%; } 
+.container .offset-by-fourteen              { padding-left: 87.5%; } 
+.container .offset-by-fifteen               { padding-left: 93.75%; }
+}
+
+
