@@ -23,19 +23,26 @@
 </head>
 <body>
 	<div class="container" id="splash"></div>
-    <div class="container" id="app">
+    <div class="container" id="app" data-state="splash">
+        <span id="log"></span>
+
     	<div id="dude">
     		<div class="graphic">
     			<!--  -->
     		</div>
     	</div>
     	<div id="passFail">
-    		<!--  -->
+    		<div class="pass message"><h2>Nice job,</h2>You might not be wasted.<br> But then again...</div>
+    		<div class="fail message"><h2>Woah! </h2>If you can't walk then you can't drive.</div>
        	</div>
     	<div id="footer">
-    		<button id="startBtn"></button>
-    		<div class="debug">
-    			<span id="log"></span>
+    		<div class="row">
+    			<div class="cell">
+					<button id="startBtn"></button>
+    			</div>
+    			<div class="cell">
+    				<span id="counter"></span>
+    			</div>
     		</div>
     	</div>
     </div>    

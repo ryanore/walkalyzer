@@ -72,7 +72,7 @@ article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, 
 /* LINKS */
 /* BUTTONS */
 /* line 62, sass/global/_mixins.scss */
-#footer button {
+#startBtn {
   -webkit-transition: background-color 0.15s ease-in;
   -moz-transition: background-color 0.15s ease-in;
   -o-transition: background-color 0.15s ease-in;
@@ -298,20 +298,34 @@ article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, 
 /* line 4, sass/appStates/_app.scss */
 body, html {
   height: 100%;
+  font-family: 'Helvetica Neue', 'Helvetica', sans-serif;
 }
 
-/* line 7, sass/appStates/_app.scss */
+/* line 8, sass/appStates/_app.scss */
 body {
   background: #ccc;
   background-image: url(../images/congruent_outline.png);
 }
 
-/* line 12, sass/appStates/_app.scss */
-.debug {
+/* line 13, sass/appStates/_app.scss */
+#splash {
   display: none;
 }
 
-/* line 16, sass/appStates/_app.scss */
+/* line 18, sass/appStates/_app.scss */
+#log {
+  display: none;
+  position: static;
+  padding: 5px;
+  color: #fff;
+  background: rgba(0, 0, 0, 0.25);
+}
+/* line 24, sass/appStates/_app.scss */
+#log.show {
+  display: inline-block;
+}
+
+/* line 29, sass/appStates/_app.scss */
 .container {
   width: 100%;
   height: 100%;
@@ -334,20 +348,17 @@ body {
   box-align: stretch;
 }
 
-/* line 26, sass/appStates/_app.scss */
-#splash {
-  display: none;
-}
-
-/* line 31, sass/appStates/_app.scss */
+/* line 39, sass/appStates/_app.scss */
 #dude {
   -webkit-box-flex: 10;
   -moz-box-flex: 10;
   -ms-box-flex: 10;
   box-flex: 10;
   position: relative;
+  max-width: 400px;
+  margin: 0 auto;
 }
-/* line 34, sass/appStates/_app.scss */
+/* line 44, sass/appStates/_app.scss */
 #dude .graphic {
   content: "";
   position: absolute;
@@ -362,32 +373,69 @@ body {
   -webkit-transform-origin: 50% 95%;
 }
 
-/* line 50, sass/appStates/_app.scss */
+/* line 59, sass/appStates/_app.scss */
+#passFail {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  top: 0;
+  transition: .7s;
+  transition-delay: 2s;
+  opacity: 0;
+  background: rgba(0, 0, 0, 0.5);
+}
+
+/* line 71, sass/appStates/_app.scss */
+.message {
+  opacity: 0;
+  top: 20%;
+  width: 300px;
+  margin: 20% auto;
+  padding: 4%;
+  background: rgba(255, 255, 255, 0.8);
+  border: 4px solid #39b54a;
+  border-radius: 5px;
+  font-size: 1.2em;
+  color: #222;
+}
+/* line 82, sass/appStates/_app.scss */
+.message h2 {
+  font-size: 2rem;
+  margin-bottom: 5px;
+}
+
+/* line 88, sass/appStates/_app.scss */
 #footer {
   -webkit-box-flex: 0.1;
   -moz-box-flex: 0.1;
   -ms-box-flex: 0.1;
   box-flex: 0.1;
+  display: table;
+  table-layout: fixed;
+  width: 100%;
   position: relative;
   z-index: 9999;
   max-height: 60px;
   min-height: 60px;
-  padding: 10px 5%;
-  background: rgba(0, 0, 0, 0.25);
+  padding: 0 5%;
+  background: rgba(0, 0, 0, 0.6);
+  border-top: 1px solid #39b54a;
   color: #fff;
 }
-/* line 59, sass/appStates/_app.scss */
-#footer #log {
-  display: none;
-  padding: 5px;
-  background: rgba(0, 0, 0, 0.25);
+/* line 102, sass/appStates/_app.scss */
+#footer .row {
+  display: table-row;
 }
-/* line 63, sass/appStates/_app.scss */
-#footer #log.show {
-  display: inline-block;
+/* line 105, sass/appStates/_app.scss */
+#footer .cell {
+  display: table-cell;
+  width: 50%;
+  text-align: center;
+  vertical-align: middle;
 }
-/* line 67, sass/appStates/_app.scss */
-#footer button {
+
+/* line 114, sass/appStates/_app.scss */
+#startBtn {
   -webkit-border-radius: 4px;
   -moz-border-radius: 4px;
   -ms-border-radius: 4px;
@@ -396,16 +444,44 @@ body {
   font-family: Impact, Arial;
   color: #666666;
   background-color: white;
-  padding: 5px;
-  font-size: 18px;
-  width: 130px;
-  text-align: center;
-  margin-right: 30px;
-  display: inline-block;
+  opacity: 1;
+  font-size: 16px;
 }
 /* line 80, sass/global/_mixins.scss */
-#footer button:hover {
+#startBtn:hover {
   background-color: #cccccc;
+}
+
+/* line 120, sass/appStates/_app.scss */
+#counter {
+  font-size: 30px;
+  padding: 3px 5%;
+  background: rgba(0, 0, 0, 0.6);
+  border: 1px solid #000;
+}
+
+/* line 128, sass/appStates/_app.scss */
+#startBtn,
+#counter {
+  width: 90%;
+  max-width: 200px;
+  vertical-align: middle;
+  transition: opacity .5s;
+  border-radius: 4px;
+}
+
+/* line 1, sass/appStates/_appSplash.scss */
+#app[data-state="splash"] {
+  background-image: url(../images/logo.png);
+  background-repeat: no-repeat;
+  background-size: 90%;
+  background-position: center 30%;
+  box-shadow: 0 -62px 123px 72px rgba(0, 0, 0, 0.5) inset;
+}
+/* line 9, sass/appStates/_appSplash.scss */
+#app[data-state="splash"] #dude,
+#app[data-state="splash"] #footer {
+  display: none;
 }
 
 /* line 2, sass/appStates/_appReady.scss */
@@ -414,32 +490,93 @@ body {
 }
 /* line 5, sass/appStates/_appReady.scss */
 #app[data-state="ready"] #startBtn {
-  display: block;
+  display: inline-block;
+  opacity: 1;
 }
 /* line 7, sass/appStates/_appReady.scss */
 #app[data-state="ready"] #startBtn:before {
   content: "Start!";
 }
+/* line 12, sass/appStates/_appReady.scss */
+#app[data-state="ready"] #counter {
+  display: none;
+}
 
 /* line 2, sass/appStates/_appFail.scss */
 #app[data-state="fail"] #dude > .graphic {
-  background-image: url(../images/dude-puking.png);
-  -webkit-transform: rotate(0deg) !important;
+  background-image: url(../images/fail.png), url(../images/dude-puking.png);
+  background-position: 90% 50%, 50% 50%;
+  transform: rotate(0deg) !important;
 }
-/* line 6, sass/appStates/_appFail.scss */
+/* line 13, sass/appStates/_appFail.scss */
 #app[data-state="fail"] #startBtn {
-  display: block;
+  opacity: 1;
 }
-/* line 8, sass/appStates/_appFail.scss */
+/* line 14, sass/appStates/_appFail.scss */
 #app[data-state="fail"] #startBtn:before {
   content: "Try Again?";
+}
+/* line 20, sass/appStates/_appFail.scss */
+#app[data-state="fail"] #counter {
+  opacity: 0;
+}
+/* line 25, sass/appStates/_appFail.scss */
+#app[data-state="fail"] #passFail,
+#app[data-state="fail"] .message.fail {
+  opacity: 1;
+}
+/* line 29, sass/appStates/_appFail.scss */
+#app[data-state="fail"] .message.pass {
+  display: none;
+}
+
+/* line 2, sass/appStates/_appPass.scss */
+#app[data-state="pass"] #dude > .graphic {
+  background-image: url(../images/pass.png), url(../images/dude-winning.png);
+  background-position: 90% 50%, 50% 50%;
+  -webkit-transform: rotate(0deg) !important;
+}
+/* line 12, sass/appStates/_appPass.scss */
+#app[data-state="pass"] #startBtn {
+  opacity: 1;
+}
+/* line 13, sass/appStates/_appPass.scss */
+#app[data-state="pass"] #startBtn:before {
+  content: "Try Again?";
+}
+/* line 19, sass/appStates/_appPass.scss */
+#app[data-state="pass"] #counter {
+  opacity: 0;
+}
+/* line 24, sass/appStates/_appPass.scss */
+#app[data-state="pass"] #passFail,
+#app[data-state="pass"] .message.pass {
+  opacity: 1;
+}
+/* line 28, sass/appStates/_appPass.scss */
+#app[data-state="pass"] .message.fail {
+  display: none;
 }
 
 /* line 5, sass/appStates/_appActive.scss */
 #app[data-state="active"] #startBtn {
-  display: none;
+  opacity: .2;
 }
 /* line 7, sass/appStates/_appActive.scss */
 #app[data-state="active"] #startBtn:before {
-  content: "";
+  content: "WALK";
+}
+/* line 12, sass/appStates/_appActive.scss */
+#app[data-state="active"] #counter {
+  opacity: 1;
+}
+/* line 16, sass/appStates/_appActive.scss */
+#app[data-state="active"] #passFail, #app[data-state="active"] .message {
+  transition: none;
+  transition-delay: 0;
+  opacity: 0;
+}
+/* line 22, sass/appStates/_appActive.scss */
+#app[data-state="active"] .message {
+  display: block;
 }

@@ -1,12 +1,25 @@
 #app[data-state="active"]{
-  #dude > .graphic{
+  
+  #dude > .graphic{}
 
-  }
   #startBtn{
-    display: none;
+    opacity: .2;
     &:before{
-      content: "";
+      content: "WALK";
     }
+  }
 
+  #counter{
+  	opacity: 1;
+  } 
+  
+  #passFail, .message{
+    transition: none;
+    transition-delay: 0;
+    opacity: 0;
+  }
+  
+  .message{
+    display: block;
   }
 }

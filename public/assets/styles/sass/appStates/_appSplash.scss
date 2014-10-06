@@ -1,0 +1,12 @@
+#app[data-state="splash"]{
+  background-image: url(../images/logo.png);
+  background-repeat: no-repeat;
+  background-size: 90%;
+  background-position: center 30%;
+  box-shadow: 0 -62px 123px 72px rgba(0, 0, 0, 0.5) inset  ;
+
+  #dude,
+  #footer{
+    display: none;
+  }
+}

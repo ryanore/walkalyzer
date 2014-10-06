@@ -3,10 +3,14 @@
     -webkit-transform: rotate(0deg) !important;
   }
   #startBtn{
-    display: block;
+  	display: inline-block;
     &:before{
       content: "Start!";
     }
-
+    opacity: 1;
   }
+  #counter{
+    display: none;
+  }
+
 }

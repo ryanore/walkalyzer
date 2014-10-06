@@ -1,15 +1,14 @@
-#app[data-state="fail"]{
+#app[data-state="pass"]{
   #dude > .graphic{
       background-image:
-        url(../images/fail.png) ,
-        url(../images/dude-puking.png);
+       url(../images/pass.png) ,
+        url(../images/dude-winning.png);
       background-position: 
         90% 50%,
         50% 50%;
 
-      transform: rotate(0deg) !important;
+      -webkit-transform: rotate(0deg) !important;
   }
-  
   #startBtn{
     &:before{
       content: "Try Again?";
@@ -21,12 +20,13 @@
     opacity: 0;
   }
 
-  #passFail,
-   .message.fail{
+   #passFail,
+   .message.pass{
     opacity: 1;
   }
 
-  .message.pass{
+  .message.fail{
     display: none;
   }
+
 }

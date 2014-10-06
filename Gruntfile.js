@@ -44,7 +44,7 @@ module.exports = function(grunt) {
 		    options: {
 		      baseUrl: "<%= conf.src %>/assets/scripts",
 		      mainConfigFile: "<%= conf.src %>/assets/scripts/main.js",
-		      out: "<%= conf.build %>/scripts/main-min.js",
+		      out: "<%= conf.build %>/assets/scripts/main.js",
 		      name: "main",
 			  optimize: "uglify2",
 		    }
@@ -59,7 +59,7 @@ module.exports = function(grunt) {
 			cleanUp: {
 				src: [ 
 				'<%= conf.build %>/assets/styles/*', '!<%= conf.build %>/assets/styles/main.css',
-				'<%= conf.build %>/assets/scripts/*', '!<%= conf.build %>/assets/scripts/main-min.js'
+				'<%= conf.build %>/assets/scripts/*', '!<%= conf.build %>/assets/scripts/main.js'
 				]
 			}
 		},

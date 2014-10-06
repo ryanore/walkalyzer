@@ -20,6 +20,8 @@ $formFont: Arial, sans-serif;
 @import 'global/mixins';
 @import 'global/helpers';
 @import 'appStates/app';
+@import 'appStates/appSplash';
 @import 'appStates/appReady';
 @import 'appStates/appFail';
+@import 'appStates/appPass';
 @import 'appStates/appActive';
