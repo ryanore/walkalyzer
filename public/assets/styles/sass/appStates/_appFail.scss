@@ -12,13 +12,14 @@
   
   #startBtn{
     &:before{
-      content: "Try Again?";
+      content: "Again?";
     }
     opacity: 1;
   }
   
   #counter{
-    opacity: 0;
+    display: none;
+
   }
 
   #passFail,

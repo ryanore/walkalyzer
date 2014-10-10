@@ -11,8 +11,9 @@ function(utils){
         this.initialX = null;
         this.initialY = null;
         this.handler = this.handleOrientationEvent.bind(this);
+        this.support = typeof window.DeviceOrientationEvent !== 'undefined';
         
-        if (! window.DeviceOrientationEvent) {
+        if (! this.support) {
             callback({unsupported: true})
             console.log('NOT SUPPORTED');
             return false;

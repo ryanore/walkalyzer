@@ -22,7 +22,6 @@
 	<link rel="stylesheet" href="assets/styles/main.css">
 </head>
 <body>
-	<div class="container" id="splash"></div>
     <div class="container" id="app" data-state="splash">
         <span id="log"></span>
 
@@ -32,20 +31,29 @@
     		</div>
     	</div>
     	<div id="passFail">
-    		<div class="pass message"><h2>Nice job,</h2>You might not be wasted.<br> But then again...</div>
-    		<div class="fail message"><h2>Woah! </h2>If you can't walk then you can't drive.</div>
+    		<div class="pass message"><h2>Nice job,</h2>You might not be wasted.</div>
+    		<div class="fail message"><h2>Woah! </h2>If you can't walk then you probably shouldn't be driving.</div>
        	</div>
     	<div id="footer">
     		<div class="row">
     			<div class="cell">
 					<button id="startBtn"></button>
     			</div>
-    			<div class="cell">
-    				<span id="counter"></span>
-    			</div>
+                <div id="logo" class="cell">
+                    <!-- logo -->
+                </div> 
+                <div class="cell">
+                    <span id="counter"></span>
+                </div>
     		</div>
     	</div>
-    </div>    
+        <div class="container" id="splash">
+            <div class='msg'>Sorry, your device can't handle this biznass.<br>See you in the future.</div>
+        </div>
+    </div> 
+
     <script src="bower_components/requirejs/require.js" data-main="assets/scripts/main.js" ></script>
+    <img class="preload" src="assets/images/dude-puking.png"/>
+    <img class="preload" src="assets/images/dude-winning.png"/>
 </body>
 </html>

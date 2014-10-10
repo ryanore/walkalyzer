@@ -63,14 +63,14 @@ function(utils, Accelo, Counter){
 
 
 	var updateLog = function(tf){
-
-		logging = tf || !logging;
+		
+		logging = tf || false;
 
 		if( logging ){
-			logger.classList.add('show');
+			app.classList.add('debug');
 		}
 		else{
-			logger.classList.remove('show');
+			app.classList.remove('debug');
 		}
 	};
 
@@ -94,10 +94,9 @@ function(utils, Accelo, Counter){
 		if( checkSobriety() ){
 			graphic.setAttribute("style","-webkit-transform:rotate(" + degrees + "deg)");
 		} else {
-			// fail();
+			fail();
 		}
 		if(logging){
-			// logger.innerHTML = degrees;
 			logger.innerHTML = 'b: '+fb +'<br><br>g: '+lr ;
 		}
 
@@ -112,9 +111,9 @@ function(utils, Accelo, Counter){
 	};
 
 
-	var initialize = function(loggin){
+	var initialize = function(debug){
 
-		if(loggin) updateLog(loggin);
+		updateLog(debug);
 
 		acc = new Accelo( { 
 			element: dude,
@@ -123,16 +122,21 @@ function(utils, Accelo, Counter){
 
 		counter = new Counter( {
 			el: $('counter'),
-			limit: 30
+			limit: 10
 		});
 
 		btn.addEventListener('click', startTest );
 
 		el.addEventListener('tic', handleCounter );
 		
-		setTimeout( function(){
-			app.setAttribute("data-state", 'ready');
-		}, 4000);
+		if(acc.support){
+			setTimeout( function(){
+				app.setAttribute("data-state", 'ready');
+			}, 3000);
+		} else {
+			$('splash').classList.add('no-support');
+		}
+
 		
 	};
 

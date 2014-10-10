@@ -1,12 +1,32 @@
 #app[data-state="splash"]{
-  background-image: url(../images/logo.png);
-  background-repeat: no-repeat;
-  background-size: 90%;
-  background-position: center 30%;
-  box-shadow: 0 -62px 123px 72px rgba(0, 0, 0, 0.5) inset  ;
+ 
+ #splash{
+    position: fixed;
+    z-index: 9999;
 
-  #dude,
-  #footer{
-    display: none;
-  }
+    width: 100%;
+    height: 100%;
+    background-image: 
+      url(../images/logo.png), 
+      url(../images/congruent_outline.png);
+    background-repeat: 
+      no-repeat, 
+      repeat;
+    background-size: 
+      90%, 
+      contain;
+    background-position: 
+      center 30%, 
+      center center;
+    box-shadow: 0 -62px 123px 72px rgba(0, 0, 0, 0.5) inset  ;
+
+    &.no-support{
+      .msg{
+        display: block;
+        color: #ccc;
+        padding: 80% 5% 0 5% ;
+        text-align: center;
+      }
+    }
+  } 
 }
