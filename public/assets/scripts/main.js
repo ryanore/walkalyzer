@@ -7,7 +7,7 @@ require.config({
 	}
 });
 
-define(['walkalizer','utils'], function(Walkalizer, utils) {
+require(['walkalizer','utils'], function(Walkalizer, utils) {
 	
 	'use strict';
 
@@ -16,5 +16,4 @@ define(['walkalizer','utils'], function(Walkalizer, utils) {
 	Walkalizer.init(debug);
 
 });
-
 

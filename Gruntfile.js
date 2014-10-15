@@ -44,9 +44,10 @@ module.exports = function(grunt) {
 		    options: {
 		      baseUrl: "<%= conf.src %>/assets/scripts",
 		      mainConfigFile: "<%= conf.src %>/assets/scripts/main.js",
-		      out: "<%= conf.build %>/assets/scripts/main.js",
-		      name: "main",
-			  optimize: "uglify2",
+		      out: "<%= conf.build %>/assets/scripts/main-min.js",
+		      name: "../../bower_components/almond/almond",
+					include: 'main',
+			  	optimize: "uglify2"
 		    }
 		  }
 		},
@@ -59,7 +60,7 @@ module.exports = function(grunt) {
 			cleanUp: {
 				src: [ 
 				'<%= conf.build %>/assets/styles/*', '!<%= conf.build %>/assets/styles/main.css',
-				'<%= conf.build %>/assets/scripts/*', '!<%= conf.build %>/assets/scripts/main.js'
+				'<%= conf.build %>/assets/scripts/*', '!<%= conf.build %>/assets/scripts/main-min.js'
 				]
 			}
 		},
@@ -69,7 +70,23 @@ module.exports = function(grunt) {
 				files: '<%= conf.src %>/assets/styles/sass/**/*.scss',
 				tasks: ['compass']
 			}
-		}
+		},
+
+	  processhtml: {
+	    options: {
+	    	process: true,
+	      data: {
+	        message: 'Hello world!'
+	      }
+	    },
+	    dist: {
+	     	files: {
+	      '<%= conf.build %>/index.html': ['<%= conf.build %>/index.html']
+	      }
+	    }
+	  }
+
+
 	});
 
 
@@ -83,7 +100,7 @@ module.exports = function(grunt) {
 	  'build', 
 	  'Compiles all of the assets and copies the files to the build directory.', 
 	  // [ 'clean:build', 'copy', 'concat', 'uglify', 'clean:cleanUp' ]
-	  [ 'clean', 'copy', 'requirejs', 'clean:cleanUp' ]
+	  [ 'clean', 'copy', 'processhtml:dist', 'requirejs', 'clean:cleanUp' ]
 
 	);
 };
