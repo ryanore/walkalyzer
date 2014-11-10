@@ -9,7 +9,7 @@ $dark:  rgb(34,34,34);			//#222
 $brand2nd: rgb(21,123,178);		//#157BB2
 $brand: #39b54a; 		
 $brandHL: rgb(255,155,25);		//#FF9B19
-
+$containerShadow: 0 -32px 200px 20px rgba(0, 0, 0, 0.9) inset;
 /*FONTS*/
 $bodyFont: sans-serif;
 $headingFont: Impact, Arial;
@@ -21,6 +21,7 @@ $formFont: Arial, sans-serif;
 @import 'global/mixins';
 @import 'global/helpers';
 @import 'appStates/app';
+@import 'appStates/appLoading';
 @import 'appStates/appSplash';
 @import 'appStates/appReady';
 @import 'appStates/appFail';

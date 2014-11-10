@@ -21,19 +21,38 @@
 	<meta name="apple-mobile-web-app-title" content="">
 	<link rel="stylesheet" href="assets/styles/main.css">
 </head>
-<body>
-    <div class="container" id="app" data-state="splash">
-        <span id="log"></span>
 
+<body id="app" data-state="loading">
+
+    <div class="container" id="splash">
+        <div class='msg'>Sorry, your device can't handle this biznass.<br>See you in the future.</div>
+    </div>
+    
+
+    <div class="container" id="main">
+        <span id="log"></span>
     	<div id="dude">
     		<div class="graphic">
     			<!--  -->
     		</div>
     	</div>
     	<div id="passFail">
-    		<div class="pass message"><h2>Nice job,</h2>You might not be wasted.</div>
+            <h2>Nice job,</h2>You <strong>might</strong> not be wasted.
     		<div class="fail message"><h2>Woah! </h2>If you can't walk then you probably shouldn't be driving.</div>
        	</div>
+        <div id="about">
+            <div class="about message">
+                <p>
+                    Walkalyzer is for entertainment purposes only.  If you are impaired don't drive or do anything stupid that could hurt someone else.  
+                </p>
+                <br>
+                <p>But if you are impared why not play with this app, it's fun!</p>
+                <br>
+                <p>Thanks,<br><a href="ryanore.com">.ore</a></p>
+                <br>
+                <p><button id="close">close</button></p>
+            </div>
+        </div>
     	<div id="footer">
     		<div class="row">
     			<div class="cell">
@@ -47,15 +66,11 @@
                 </div>
     		</div>
     	</div>
-        <div class="container" id="splash">
-            <div class='msg'>Sorry, your device can't handle this biznass.<br>See you in the future.</div>
-        </div>
     </div> 
+
     <!-- build:js assets/scripts/main-min.js -->
     <script src="bower_components/requirejs/require.js" data-main="assets/scripts/main.js" ></script>
     <!-- /build -->
-
-
     <img class="preload" src="assets/images/dude-puking.png"/>
     <img class="preload" src="assets/images/dude-winning.png"/>
 </body>

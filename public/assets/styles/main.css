@@ -72,7 +72,7 @@ article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, 
 /* LINKS */
 /* BUTTONS */
 /* line 62, sass/global/_mixins.scss */
-#startBtn {
+button {
   -webkit-transition: background-color 0.15s ease-in;
   -moz-transition: background-color 0.15s ease-in;
   -o-transition: background-color 0.15s ease-in;
@@ -299,16 +299,29 @@ article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, 
 body, html {
   height: 100%;
   font-family: sans-serif;
+  background: #333;
 }
 
-/* line 8, sass/appStates/_app.scss */
+/* line 9, sass/appStates/_app.scss */
 body {
-  background: #cccccc;
-  background-image: url(../images/congruent_outline.png);
   line-height: 1.3;
+  background-image: url(../images/congruent_outline.png);
 }
 
 /* line 14, sass/appStates/_app.scss */
+a {
+  color: #000;
+}
+/* line 18, sass/appStates/_app.scss */
+a:visited, a:active, a:hover {
+  color: #000;
+}
+
+/**
+ *  UTILS
+ *  
+ */
+/* line 28, sass/appStates/_app.scss */
 img.preload {
   visibility: hidden;
   position: absolute;
@@ -316,12 +329,7 @@ img.preload {
   left: -2000px;
 }
 
-/* line 22, sass/appStates/_app.scss */
-#splash .msg {
-  display: none;
-}
-
-/* line 27, sass/appStates/_app.scss */
+/* line 34, sass/appStates/_app.scss */
 #log {
   display: none;
   position: static;
@@ -330,12 +338,16 @@ img.preload {
   background: rgba(0, 0, 0, 0.25);
 }
 
-/* line 34, sass/appStates/_app.scss */
+/* line 41, sass/appStates/_app.scss */
 .debug #log {
   display: inline-block;
 }
 
-/* line 38, sass/appStates/_app.scss */
+/**
+ *  MAIN CONTAINERS
+ *  
+ */
+/* line 51, sass/appStates/_app.scss */
 .container {
   width: 100%;
   height: 100%;
@@ -344,6 +356,7 @@ img.preload {
   bottom: 0;
   left: 0;
   right: 0;
+  transition: opacity .5s;
   display: -webkit-box;
   display: -moz-box;
   display: -ms-box;
@@ -358,7 +371,21 @@ img.preload {
   box-align: stretch;
 }
 
-/* line 48, sass/appStates/_app.scss */
+/* line 61, sass/appStates/_app.scss */
+#main {
+  box-shadow: 0 -32px 200px 20px rgba(0, 0, 0, 0.9) inset;
+}
+
+/* line 65, sass/appStates/_app.scss */
+#splash .msg {
+  display: none;
+}
+
+/**
+*  MODULES
+*
+*/
+/* line 76, sass/appStates/_app.scss */
 #dude {
   -webkit-box-flex: 10;
   -moz-box-flex: 10;
@@ -368,12 +395,13 @@ img.preload {
   max-width: 400px;
   margin: 0 auto;
 }
-/* line 53, sass/appStates/_app.scss */
+/* line 81, sass/appStates/_app.scss */
 #dude .graphic {
   content: "";
   position: absolute;
   width: 100%;
-  height: 100%;
+  height: 80%;
+  margin-top: 15%;
   background-size: contain;
   background-position: 50% 50%;
   background-repeat: no-repeat;
@@ -383,7 +411,7 @@ img.preload {
   -webkit-transform-origin: 50% 95%;
 }
 
-/* line 68, sass/appStates/_app.scss */
+/* line 97, sass/appStates/_app.scss */
 #passFail {
   position: absolute;
   height: 100%;
@@ -395,27 +423,52 @@ img.preload {
   background: rgba(0, 0, 0, 0.5);
 }
 
-/* line 80, sass/appStates/_app.scss */
+/* line 109, sass/appStates/_app.scss */
+#about {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  top: 0;
+  transition: .7s;
+  opacity: 0;
+  background: rgba(0, 0, 0, 0.5);
+}
+/* line 117, sass/appStates/_app.scss */
+#about.show {
+  opacity: 1;
+}
+/* line 119, sass/appStates/_app.scss */
+#about.show .message {
+  opacity: 1;
+  margin: 5% auto;
+  padding: 5%;
+}
+/* line 123, sass/appStates/_app.scss */
+#about.show .message button {
+  float: right;
+}
+
+/* line 132, sass/appStates/_app.scss */
 .message {
   opacity: 0;
-  top: 20%;
   width: 90%;
-  max-width: 300px;
-  margin: 20% auto;
+  max-width: 500px;
+  margin: 35% auto;
   padding: 4%;
   background: rgba(255, 255, 255, 0.8);
   border: 4px solid #39b54a;
   border-radius: 5px;
   font-size: 1.2em;
   color: #222;
+  overflow: hidden;
 }
-/* line 92, sass/appStates/_app.scss */
+/* line 144, sass/appStates/_app.scss */
 .message h2 {
   font-size: 2rem;
   margin-bottom: 5px;
 }
 
-/* line 98, sass/appStates/_app.scss */
+/* line 151, sass/appStates/_app.scss */
 #footer {
   -webkit-box-flex: 0.1;
   -moz-box-flex: 0.1;
@@ -433,11 +486,11 @@ img.preload {
   border-top: 1px solid #39b54a;
   color: #fff;
 }
-/* line 111, sass/appStates/_app.scss */
+/* line 164, sass/appStates/_app.scss */
 #footer .row {
   display: table-row;
 }
-/* line 114, sass/appStates/_app.scss */
+/* line 167, sass/appStates/_app.scss */
 #footer .cell {
   display: table-cell;
   width: 33%;
@@ -445,8 +498,8 @@ img.preload {
   vertical-align: middle;
 }
 
-/* line 123, sass/appStates/_app.scss */
-#startBtn {
+/* line 177, sass/appStates/_app.scss */
+button {
   -webkit-border-radius: 4px;
   -moz-border-radius: 4px;
   -ms-border-radius: 4px;
@@ -455,15 +508,15 @@ img.preload {
   font-family: Impact, Arial;
   color: #666666;
   background-color: white;
-  opacity: 1;
+  font-family: sans-serif;
   font-size: 16px;
 }
 /* line 80, sass/global/_mixins.scss */
-#startBtn:hover {
+button:hover {
   background-color: #cccccc;
 }
 
-/* line 129, sass/appStates/_app.scss */
+/* line 183, sass/appStates/_app.scss */
 #counter {
   font-size: 25px;
   padding: 0 5%;
@@ -472,16 +525,17 @@ img.preload {
   display: inline-block;
 }
 
-/* line 136, sass/appStates/_app.scss */
+/* line 190, sass/appStates/_app.scss */
 #logo {
-  background: url(../images/logo.png) no-repeat right center;
+  background: url(../images/logo-w.png) no-repeat center center;
   background-size: contain;
   display: block;
 }
 
-/* line 143, sass/appStates/_app.scss */
+/* line 197, sass/appStates/_app.scss */
 #startBtn,
 #counter {
+  opacity: 0;
   width: 90%;
   max-width: 200px;
   vertical-align: middle;
@@ -490,19 +544,36 @@ img.preload {
   font-family: sans-serif;
 }
 
-/* line 3, sass/appStates/_appSplash.scss */
+/* line 1, sass/appStates/_appLoading.scss */
+#app[data-state="loading"] {
+  box-shadow: 0 -32px 200px 20px rgba(0, 0, 0, 0.9) inset;
+}
+/* line 5, sass/appStates/_appLoading.scss */
+#app[data-state="loading"] .container {
+  display: none !important;
+}
+
+/* line 1, sass/appStates/_appSplash.scss */
+#app[data-state="splash"] {
+  box-shadow: 0 -32px 200px 20px rgba(0, 0, 0, 0.9) inset;
+}
+/* line 5, sass/appStates/_appSplash.scss */
+#app[data-state="splash"] #main {
+  opacity: 0 !important;
+}
+/* line 8, sass/appStates/_appSplash.scss */
 #app[data-state="splash"] #splash {
   position: fixed;
+  display: block;
   z-index: 9999;
   width: 100%;
   height: 100%;
-  background-image: url(../images/logo.png), url(../images/congruent_outline.png);
-  background-repeat: no-repeat,  repeat;
-  background-size: 90%,  contain;
-  background-position: center 30%,  center center;
-  box-shadow: 0 -62px 123px 72px rgba(0, 0, 0, 0.5) inset;
+  background-image: url(../images/logo.png);
+  background-repeat: no-repeat;
+  background-size: 90%;
+  background-position: center 30%;
 }
-/* line 24, sass/appStates/_appSplash.scss */
+/* line 19, sass/appStates/_appSplash.scss */
 #app[data-state="splash"] #splash.no-support .msg {
   display: block;
   color: #ccc;
@@ -516,16 +587,16 @@ img.preload {
 }
 /* line 5, sass/appStates/_appReady.scss */
 #app[data-state="ready"] #startBtn {
-  display: inline-block;
   opacity: 1;
+  display: inline-block;
 }
-/* line 7, sass/appStates/_appReady.scss */
+/* line 8, sass/appStates/_appReady.scss */
 #app[data-state="ready"] #startBtn:before {
   content: "Start!";
 }
 /* line 12, sass/appStates/_appReady.scss */
 #app[data-state="ready"] #counter {
-  display: none;
+  opacity: .2;
 }
 
 /* line 2, sass/appStates/_appFail.scss */
@@ -544,14 +615,14 @@ img.preload {
 }
 /* line 20, sass/appStates/_appFail.scss */
 #app[data-state="fail"] #counter {
-  display: none;
+  opacity: .2;
 }
-/* line 26, sass/appStates/_appFail.scss */
+/* line 25, sass/appStates/_appFail.scss */
 #app[data-state="fail"] #passFail,
 #app[data-state="fail"] .message.fail {
   opacity: 1;
 }
-/* line 30, sass/appStates/_appFail.scss */
+/* line 29, sass/appStates/_appFail.scss */
 #app[data-state="fail"] .message.pass {
   display: none;
 }
@@ -572,7 +643,7 @@ img.preload {
 }
 /* line 19, sass/appStates/_appPass.scss */
 #app[data-state="pass"] #counter {
-  display: none;
+  opacity: .2;
 }
 /* line 24, sass/appStates/_appPass.scss */
 #app[data-state="pass"] #passFail,
@@ -597,7 +668,7 @@ img.preload {
   opacity: 1;
 }
 /* line 16, sass/appStates/_appActive.scss */
-#app[data-state="active"] #passFail, #app[data-state="active"] .message {
+#app[data-state="active"] #passFail {
   transition: none;
   transition-delay: 0;
   opacity: 0;

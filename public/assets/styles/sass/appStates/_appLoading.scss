@@ -1,0 +1,9 @@
+#app[data-state="loading"]{
+  
+  box-shadow: $containerShadow ;
+
+  .container{
+    display: none !important;
+  }
+
+}
